@@ -85,6 +85,7 @@ series
 sieve
 space-age
 spiral-matrix
+square-root
 state-of-tic-tac-toe
 strain
 sublist
