@@ -84,6 +84,7 @@ scrabble-score
 secret-handshake
 series
 sieve
+simple-cipher
 space-age
 spiral-matrix
 square-root
