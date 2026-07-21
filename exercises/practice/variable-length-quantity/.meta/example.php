@@ -2,16 +2,12 @@
 
 declare(strict_types=1);
 
-/**
- * @param array $integers
- * @return array
- */
-function vlq_encode(array $integers)
+function vlq_encode(array $integers): array
 {
     $result = [];
 
     foreach ($integers as $integer) {
-        if ($integer > 0xfffffff) {
+        if ($integer > PHP_INT_MAX) {
             throw new InvalidArgumentException('The value is greater than the maximum allowed.');
         }
 
@@ -27,11 +23,7 @@ function vlq_encode(array $integers)
     return $result;
 }
 
-/**
- * @param array $bytes
- * @return array
- */
-function vlq_decode(array $bytes)
+function vlq_decode(array $bytes): array
 {
     $result = [];
     $integer = 0;
@@ -51,7 +43,7 @@ function vlq_decode(array $bytes)
     }
 
     if (($byte & 0x80) !== 0) {
-        throw new InvalidArgumentException('Incomplete byte sequence.');
+        throw new InvalidArgumentException('Error: incomplete sequence.');
     }
 
     return $result;
